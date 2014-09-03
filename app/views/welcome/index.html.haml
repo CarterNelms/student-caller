@@ -1,2 +1,24 @@
-%h1 Welcome#index
-%p Find me in app/views/welcome/index.html.haml
+%table
+  %thead
+    %tr
+      %th(colspan=3)
+        %h1 Students
+    %tr
+      %th(colspan=3)
+        = simple_form_for :student, url: pick_students_path, method: :put do |f|
+          = f.submit "Pick Someone"
+    %tr
+      %th First Name
+      %th Last Name
+      %th Last Time Called
+  %tbody
+    - @students.sort{|a,b| a.sorting_name <=> b.sorting_name}.each do |s|
+      %tr
+        %td= s.first_name
+        %td= s.last_name
+        %td= s.last_time_called
+
+= simple_form_for :student, url: students_path, method: :post do |f|
+  = f.input :first_name
+  = f.input :last_name
+  = f.submit "Add Student"

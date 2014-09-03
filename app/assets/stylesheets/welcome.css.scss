@@ -1,3 +1,15 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1{margin: 0;}
+
+table{
+  border-spacing: 0;
+
+  td, th{
+    border: 1px solid #555;
+  }
+
+  th{padding: 5px;}
+}
