@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140902172915) do
   create_table "students", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.datetime "called_at",  default: '0000-01-01 05:50:36'
+    t.datetime "called_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

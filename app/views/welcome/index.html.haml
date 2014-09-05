@@ -16,7 +16,7 @@
       %tr
         %td= s.first_name
         %td= s.last_name
-        %td(class="#{s.pickable? ? 'uncalled' : 'called'}")= s.called_at != Time.new(0) ? "#{time_ago_in_words(s.called_at)} ago" : 'Never'
+        %td(class="#{s.pickable? ? 'uncalled' : 'called'}")= s.called_at ? "#{time_ago_in_words(s.called_at)} ago" : 'Never'
         / %td(class="#{Time.now - s.called_at > 24 * 60 * 60 ? 'uncalled' : 'called'}")= s.last_time_called
 
 = simple_form_for :student, url: students_path, method: :post do |f|

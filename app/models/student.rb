@@ -31,7 +31,7 @@ class Student < ActiveRecord::Base
   # end
 
   def pickable?
-    !self.called_at.today?
+    self.called_at ? !self.called_at.today? : true
   end
 
   def pick
@@ -42,7 +42,7 @@ class Student < ActiveRecord::Base
   def self.pick
     student = nil
     # pickable_students = Student.all.select{|s| s.pickable?}
-    pickable_students = Student.where("called_at < ?", Date.today)
+    pickable_students = Student.where("called_at IS NULL or called_at < ?", Date.today)
     if pickable_students.length > 0
       student = pickable_students.sample
       student.pick
